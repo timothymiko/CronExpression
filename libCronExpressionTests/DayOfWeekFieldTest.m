@@ -29,16 +29,16 @@
 {
     DayOfWeekField* field = [[DayOfWeekField alloc ]init];
     
-    STAssertTrue([field validate: @"1"], @"1 is a valid value for day of week");
-    STAssertTrue([field validate: @"*"], @"* is a valid value for day of week");
-    STAssertTrue([field validate: @"*/3,1,1-12"], @"*/3,1,1-12 is a valid value for day of week");
-    STAssertTrue([field validate: @"SUN-2"], @"SUN-2 is a valid value for day of week");
+    XCTAssertTrue([field validate: @"1"], @"1 is a valid value for day of week");
+    XCTAssertTrue([field validate: @"*"], @"* is a valid value for day of week");
+    XCTAssertTrue([field validate: @"*/3,1,1-12"], @"*/3,1,1-12 is a valid value for day of week");
+    XCTAssertTrue([field validate: @"SUN-2"], @"SUN-2 is a valid value for day of week");
 }
 
 -(void)testChecksIfSatisfied
 {
     DayOfWeekField* field = [[DayOfWeekField alloc ]init];
-    STAssertTrue([field isSatisfiedBy: [NSDate date] byValue:@"?"], @"");
+    XCTAssertTrue([field isSatisfiedBy: [NSDate date] byValue:@"?"], @"");
 }
 
 @end

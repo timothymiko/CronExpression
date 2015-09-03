@@ -51,7 +51,7 @@
 
     if(position >= [fields count])
     {
-        [NSException raise:@"Invalid argument" format:@"%d is not a valid position", position];
+        [NSException raise:@"Invalid argument" format:@"%lu is not a valid position", (unsigned long)position];
     }
     
     if([fields objectAtIndex: position] == [NSNull null])

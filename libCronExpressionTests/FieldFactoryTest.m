@@ -37,14 +37,14 @@
     for(NSNumber* key in mappings)
     {
         NSObject* o = [factory getField: [key intValue]];
-        STAssertEqualObjects(NSStringFromClass([o class]), [mappings objectForKey:key], nil);
+        XCTAssertEqualObjects(NSStringFromClass([o class]), [mappings objectForKey:key]);
     }
 }
 
 -(void)testValidatesFieldPosition
 {
     FieldFactory* factory = [[FieldFactory alloc]init];
-    STAssertThrows([factory getField: 10], @"Should raise exception!");
+    XCTAssertThrows([factory getField: 10], @"Should raise exception!");
 }
 
 @end

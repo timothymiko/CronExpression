@@ -42,7 +42,7 @@ int const YEAR = 5;
         [cronParts enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
             if(![[_fieldFactory getField: idx] validate: (NSString*)object])
             {
-                [NSException raise:@"Invalid cron part" format:@"Invalid CRON field value %@ as position %@", object, idx];
+                [NSException raise:@"Invalid cron part" format:@"Invalid CRON field value %@ as position %ld", object, (long)idx];
             }
         }];
     }
@@ -50,7 +50,7 @@ int const YEAR = 5;
     return self;
 }
 
-+(CronExpression*) factory:(NSString*)expression: (FieldFactory*) fieldFactory
++(CronExpression*) expressionFromString:(NSString*)expression factory:(FieldFactory*) fieldFactory
 {
     /*$mappings = array(
      '@yearly' => '0 0 1 1 *',
@@ -94,7 +94,7 @@ int const YEAR = 5;
     return [[CronExpression alloc] init: expression withFieldFactory:fieldFactory];
 }
 
--(NSDate*)getNextRunDate: (NSDate*)currentTime: (NSInteger)nth
+-(NSDate*)getNextRunDate:(NSDate*)currentTime offset:(NSInteger)nth
 {
     /*$currentDate = $currentTime instanceof DateTime
      ? $currentTime
@@ -148,7 +148,7 @@ int const YEAR = 5;
      throw new RuntimeException('Impossible CRON expression');
      // @codeCoverageIgnoreEnd*/
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]autorelease];
+    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian]autorelease];
     NSDateComponents* components = [[calendar components:NSUIntegerMax fromDate:currentTime]autorelease];
     components.second = 0;
     NSDate* nextRun = [calendar dateFromComponents:components];

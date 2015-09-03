@@ -55,7 +55,7 @@ extern int const YEAR;
  *
  * @return CronExpression
  */
-+(CronExpression*) factory:(NSString*)$expression: (FieldFactory*) fieldFactory;
++(CronExpression*) expressionFromString:(NSString*)expression factory:(FieldFactory*) fieldFactory;
 
 /**
  * Parse a CRON expression
@@ -81,7 +81,7 @@ extern int const YEAR;
  *
  * @return DateTime
  */
--(NSDate*)getNextRunDate: (NSDate*)currentTime: (NSInteger)nth;
+-(NSDate*)getNextRunDate:(NSDate*)currentTime offset:(NSInteger)nth;
 
 /**
  * Get all or part of the CRON expression

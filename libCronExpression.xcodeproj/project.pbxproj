@@ -11,7 +11,6 @@
 		B310809C13FD42F300D67AC4 /* CronExpressionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B310809B13FD42F300D67AC4 /* CronExpressionTest.m */; };
 		B310809F13FD431A00D67AC4 /* FieldTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B310809E13FD431A00D67AC4 /* FieldTest.m */; };
 		B3CF23BF13F7A1FF00A4E532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CF23BE13F7A1FF00A4E532 /* Foundation.framework */; };
-		B3CF23CD13F7A1FF00A4E532 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CF23CC13F7A1FF00A4E532 /* SenTestingKit.framework */; };
 		B3CF23CF13F7A1FF00A4E532 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CF23CE13F7A1FF00A4E532 /* UIKit.framework */; };
 		B3CF23D013F7A1FF00A4E532 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CF23BE13F7A1FF00A4E532 /* Foundation.framework */; };
 		B3CF23D213F7A1FF00A4E532 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CF23D113F7A1FF00A4E532 /* CoreGraphics.framework */; };
@@ -65,7 +64,6 @@
 		B3CF23BE13F7A1FF00A4E532 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3CF23C213F7A1FF00A4E532 /* libCronExpression-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libCronExpression-Prefix.pch"; sourceTree = "<group>"; };
 		B3CF23CB13F7A1FF00A4E532 /* libCronExpressionTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libCronExpressionTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3CF23CC13F7A1FF00A4E532 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B3CF23CE13F7A1FF00A4E532 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B3CF23D113F7A1FF00A4E532 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		B3CF23D813F7A1FF00A4E532 /* libCronExpressionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "libCronExpressionTests-Info.plist"; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3CF23CD13F7A1FF00A4E532 /* SenTestingKit.framework in Frameworks */,
 				B3CF23CF13F7A1FF00A4E532 /* UIKit.framework in Frameworks */,
 				B3CF23D013F7A1FF00A4E532 /* Foundation.framework in Frameworks */,
 				B3CF23D213F7A1FF00A4E532 /* CoreGraphics.framework in Frameworks */,
@@ -150,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				B3CF23BE13F7A1FF00A4E532 /* Foundation.framework */,
-				B3CF23CC13F7A1FF00A4E532 /* SenTestingKit.framework */,
 				B3CF23CE13F7A1FF00A4E532 /* UIKit.framework */,
 				B3CF23D113F7A1FF00A4E532 /* CoreGraphics.framework */,
 			);
@@ -283,13 +279,17 @@
 			name = libCronExpressionTests;
 			productName = libCronExpressionTests;
 			productReference = B3CF23CB13F7A1FF00A4E532 /* libCronExpressionTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B3CF23B213F7A1FF00A4E532 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastTestingUpgradeCheck = 0640;
+				LastUpgradeCheck = 0640;
+			};
 			buildConfigurationList = B3CF23B513F7A1FF00A4E532 /* Build configuration list for PBXProject "libCronExpression" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -395,7 +395,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -409,7 +408,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -418,14 +418,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -437,6 +436,7 @@
 				DSTROOT = /tmp/libCronExpression.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libCronExpression/libCronExpression-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -449,6 +449,7 @@
 				DSTROOT = /tmp/libCronExpression.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libCronExpression/libCronExpression-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -460,13 +461,13 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libCronExpression/libCronExpression-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "libCronExpressionTests/libCronExpressionTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -475,13 +476,13 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libCronExpression/libCronExpression-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "libCronExpressionTests/libCronExpressionTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

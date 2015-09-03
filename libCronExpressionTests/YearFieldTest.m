@@ -29,9 +29,9 @@
 {
     YearField* field = [[YearField alloc ]init];
     
-    STAssertTrue([field validate: @"2011"], @"2011 is a valid value for year");
-    STAssertTrue([field validate: @"*"], @"* is a valid value for year");
-    STAssertTrue([field validate: @"*/10,2012,1-12"], @"*/10,2012,1-12 is a valid value for year");
+    XCTAssertTrue([field validate: @"2011"], @"2011 is a valid value for year");
+    XCTAssertTrue([field validate: @"*"], @"* is a valid value for year");
+    XCTAssertTrue([field validate: @"*/10,2012,1-12"], @"*/10,2012,1-12 is a valid value for year");
 }
 
 @end

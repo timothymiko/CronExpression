@@ -31,7 +31,7 @@
         return [self isInRange:dateValue withValue:value];
     }
     
-    return value == @"*" || dateValue == value;
+    return [value isEqualToString:@"*"] || [dateValue isEqualToString:value];
 }
 
 -(BOOL)isRange: (NSString*)value
@@ -78,7 +78,7 @@
      return (int) $dateValue % (int) $parts[1] == 0;*/
     
     NSArray *parts = [value componentsSeparatedByString: @"/"];
-    if([parts objectAtIndex:0] != @"*" && [[parts objectAtIndex:0] intValue] != 0)
+    if(![[parts objectAtIndex:0]  isEqual: @"*"] && [[parts objectAtIndex:0] intValue] != 0)
     {
         if([[parts objectAtIndex:0] rangeOfString : @"-"].location == NSNotFound)
         {

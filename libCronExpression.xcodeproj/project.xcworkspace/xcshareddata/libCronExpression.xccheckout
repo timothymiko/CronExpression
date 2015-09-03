@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F70CA4B2-F53F-45BB-8E36-CBA44E4F406D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>libCronExpression</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0F42C9DA7863B4EC1B239DAAB62978E0361A9749</key>
+		<string>github.com:timothymiko/CronExpression.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>libCronExpression.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0F42C9DA7863B4EC1B239DAAB62978E0361A9749</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:timothymiko/CronExpression.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0F42C9DA7863B4EC1B239DAAB62978E0361A9749</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0F42C9DA7863B4EC1B239DAAB62978E0361A9749</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CronExpression</string>
+		</dict>
+	</array>
+</dict>
+</plist>

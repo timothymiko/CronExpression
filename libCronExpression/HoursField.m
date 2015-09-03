@@ -16,10 +16,10 @@
 {
     /*return $this->isSatisfied($date->format('H'), $value);*/
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar] autorelease];
+    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] autorelease];
     NSDateComponents *components = [[calendar components: NSHourCalendarUnit fromDate: date] autorelease];
     
-    return [self isSatisfied: [NSString stringWithFormat:@"%d", components.hour] withValue:value];
+    return [self isSatisfied: [NSString stringWithFormat:@"%ld", (long)components.hour] withValue:value];
 }
 
 -(NSDate*) increment:(NSDate*)date
@@ -29,7 +29,7 @@
      
      return $this;*/
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar] autorelease];
+    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] autorelease];
     NSDateComponents* components = [[[NSDateComponents alloc] init] autorelease];
     components.hour = 1;
     

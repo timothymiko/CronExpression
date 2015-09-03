@@ -29,9 +29,9 @@
 {
     MinutesField* field = [[MinutesField alloc ]init];
 
-    STAssertTrue([field validate: @"1"], @"1 is a valid value for minutes");
-    STAssertTrue([field validate: @"*"], @"* is a valid value for minutes");
-    STAssertTrue([field validate: @"*/3,1,1-12"], @"*/3,1,1-12 is a valid value for minutes");
+    XCTAssertTrue([field validate: @"1"], @"1 is a valid value for minutes");
+    XCTAssertTrue([field validate: @"*"], @"* is a valid value for minutes");
+    XCTAssertTrue([field validate: @"*/3,1,1-12"], @"*/3,1,1-12 is a valid value for minutes");
 }
 
 @end

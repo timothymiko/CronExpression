@@ -94,12 +94,12 @@
      
      return $this->isSatisfied($fieldValue, $value);*/
     
-    if(value == @"?")
+    if([value  isEqual: @"?"])
     {
         return YES;
     }
     
-    NSInteger units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
+    NSInteger units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
     
     value = [value stringByReplacingOccurrencesOfString:@"SUN" withString:@"0"];
     value = [value stringByReplacingOccurrencesOfString:@"MON" withString:@"1"];
@@ -109,7 +109,7 @@
     value = [value stringByReplacingOccurrencesOfString:@"FRI" withString:@"5"];
     value = [value stringByReplacingOccurrencesOfString:@"SAT" withString:@"6"];
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar] autorelease];
+    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] autorelease];
     
     NSUInteger lastDayOfMonth = [DayOfMonthField getLastDayOfMonth:date];
     
@@ -143,7 +143,7 @@
         
         if (weekday < 1 || weekday > 5) 
         {
-            [NSException raise:@"Invalid Argument" format:@"Weekday must be a value between 1 and 5. %d given", weekday];
+            [NSException raise:@"Invalid Argument" format:@"Weekday must be a value between 1 and 5. %ld given", (long)weekday];
         }
         
         if (nth > 5) 
@@ -186,7 +186,7 @@
     
     // Test to see which Sunday to use -- 0 == 7 == Sunday
     NSDateComponents *components = [[calendar components: units fromDate: date] autorelease];
-    return [self isSatisfied: [NSString stringWithFormat:@"%d", components] withValue:value];
+    return [self isSatisfied: [NSString stringWithFormat:@"%@", components] withValue:value];
 }
 
 -(NSDate*) increment:(NSDate*)date
@@ -196,8 +196,8 @@
      
      return $this;*/
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar] autorelease];
-    NSDateComponents *midnightComponents = [[calendar components: NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate: date] autorelease];
+    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] autorelease];
+    NSDateComponents *midnightComponents = [[calendar components: NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate: date] autorelease];
     midnightComponents.hour = midnightComponents.minute = midnightComponents.second = 0;
     
     NSDateComponents* components = [[[NSDateComponents alloc] init] autorelease];

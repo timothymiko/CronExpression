@@ -48,7 +48,7 @@
                                                                     [NSNumber numberWithInteger: 11],
                                                                     [NSNumber numberWithInteger: 12],nil]];
 
-    return [self isSatisfied: [NSString stringWithFormat:@"%d", [monthMap objectForKey:value]] withValue:value];;
+    return [self isSatisfied: [NSString stringWithFormat:@"%@", [monthMap objectForKey:value]] withValue:value];;
 }
 
 -(NSDate*) increment:(NSDate*)date
@@ -59,7 +59,7 @@
      
      return $this;*/
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar] autorelease];
+    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] autorelease];
     NSDateComponents *midnightComponents = [[calendar components: NSUIntegerMax fromDate: date] autorelease];
     midnightComponents.hour = midnightComponents.minute = midnightComponents.second = 0;
     
