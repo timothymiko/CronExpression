@@ -24,8 +24,8 @@
 {
     /*return $this->isSatisfied($date->format('Y'), $value);*/
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] autorelease];
-    NSDateComponents *components = [[calendar components: NSCalendarUnitYear fromDate: date] autorelease];
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] ;
+    NSDateComponents *components = [calendar components: NSCalendarUnitYear fromDate: date] ;
     
     return [self isSatisfied: [NSString stringWithFormat:@"%ld", (long)components.year] withValue:value];
 }
@@ -38,11 +38,11 @@
      
      return $this;*/
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] autorelease];
-    NSDateComponents *midnightComponents = [[calendar components: NSUIntegerMax fromDate: date] autorelease];
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] ;
+    NSDateComponents *midnightComponents = [calendar components: NSUIntegerMax fromDate: date] ;
     midnightComponents.hour = midnightComponents.minute = midnightComponents.second = 0;
     
-    NSDateComponents* components = [[[NSDateComponents alloc] init] autorelease];
+    NSDateComponents* components = [[NSDateComponents alloc] init] ;
     components.year = 1;
     
     return [calendar dateByAddingComponents: components toDate: [calendar dateFromComponents: midnightComponents] options: 0];

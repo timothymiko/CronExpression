@@ -109,7 +109,7 @@
     value = [value stringByReplacingOccurrencesOfString:@"FRI" withString:@"5"];
     value = [value stringByReplacingOccurrencesOfString:@"SAT" withString:@"6"];
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] autorelease];
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] ;
     
     NSUInteger lastDayOfMonth = [DayOfMonthField getLastDayOfMonth:date];
     
@@ -117,20 +117,20 @@
     if([value rangeOfString : @"L"].location != NSNotFound)
     {
         NSInteger weekday = [[value substringToIndex: [value rangeOfString: @"L"].location] intValue];
-        NSDateComponents *tcomponents = [[calendar components: units fromDate: date] autorelease];
+        NSDateComponents *tcomponents = [calendar components: units fromDate: date] ;
         tcomponents.day = lastDayOfMonth;
         NSDate* tdate = [calendar dateFromComponents:tcomponents];
     
-        NSDateComponents *wcomponents = [[calendar components: units fromDate: tdate] autorelease];
+        NSDateComponents *wcomponents = [calendar components: units fromDate: tdate] ;
         
         while (wcomponents.weekday != weekday) 
         {
             tcomponents.day = --lastDayOfMonth;
             tdate = [calendar dateFromComponents:tcomponents];
-            wcomponents = [[calendar components: units fromDate: tdate] autorelease];
+            wcomponents = [calendar components: units fromDate: tdate] ;
         }
         
-        wcomponents = [[calendar components: units fromDate: date] autorelease];
+        wcomponents = [calendar components: units fromDate: date] ;
         return wcomponents.day == lastDayOfMonth;
     }
     
@@ -151,7 +151,7 @@
             [NSException raise:@"Invalid Argument" format:@"There are never more than 5 of a given weekday in a month"];
         }
         
-        NSDateComponents *tcomponents = [[calendar components: units fromDate: date] autorelease];
+        NSDateComponents *tcomponents = [calendar components: units fromDate: date] ;
         
         // The current weekday must match the targeted weekday to proceed
         if (tcomponents.weekday != weekday) 
@@ -175,17 +175,17 @@
                 }
             }
             
-            tcomponents = [[calendar components: units fromDate: tdate] autorelease];
+            tcomponents = [calendar components: units fromDate: tdate] ;
             tcomponents.day = ++currentDay;
             tdate = [calendar dateFromComponents:tcomponents];
         }
         
-        tcomponents = [[calendar components: units fromDate: date] autorelease];
+        tcomponents = [calendar components: units fromDate: date] ;
         return tcomponents.day == currentDay;
     }
     
     // Test to see which Sunday to use -- 0 == 7 == Sunday
-    NSDateComponents *components = [[calendar components: units fromDate: date] autorelease];
+    NSDateComponents *components = [calendar components: units fromDate: date] ;
     return [self isSatisfied: [NSString stringWithFormat:@"%@", components] withValue:value];
 }
 
@@ -196,11 +196,11 @@
      
      return $this;*/
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] autorelease];
-    NSDateComponents *midnightComponents = [[calendar components: NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate: date] autorelease];
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian] ;
+    NSDateComponents *midnightComponents = [calendar components: NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate: date] ;
     midnightComponents.hour = midnightComponents.minute = midnightComponents.second = 0;
     
-    NSDateComponents* components = [[[NSDateComponents alloc] init] autorelease];
+    NSDateComponents* components = [[NSDateComponents alloc] init] ;
     components.day = 1;
     
     return [calendar dateByAddingComponents: components toDate: [calendar dateFromComponents: midnightComponents] options: 0];

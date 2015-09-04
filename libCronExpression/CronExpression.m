@@ -148,8 +148,8 @@ int const YEAR = 5;
      throw new RuntimeException('Impossible CRON expression');
      // @codeCoverageIgnoreEnd*/
     
-    NSCalendar* calendar = [[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian]autorelease];
-    NSDateComponents* components = [[calendar components:NSUIntegerMax fromDate:currentTime]autorelease];
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents* components = [calendar components:NSUIntegerMax fromDate:currentTime];
     components.second = 0;
     NSDate* nextRun = [calendar dateFromComponents:components];
     
